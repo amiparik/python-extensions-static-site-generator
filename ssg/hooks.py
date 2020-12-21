@@ -6,7 +6,7 @@ def register (hook, order=0):
         return func
     return register_callback
 
-def event (next, *args):
+def event (hook, *args):
     for order in sorted(_callbacks.get(hook, {})):
         for func in _callbacks[hook][order]:
             func(*args)
